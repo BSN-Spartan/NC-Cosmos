@@ -170,4 +170,4 @@ After executing the above commands，you will get the following information. Ple
 
 ## 6.Resources
 
-To find out more about Spartan-II Chain (Powered by NC Cosmos), visit here
+To find out more about Spartan-II Chain (Powered by NC Cosmos), visit [here](https://github.com/BSN-Spartan/NC-Cosmos/tree/main/docs)
