@@ -1,0 +1,46 @@
+
+syntax = "proto3";
+package spartan.node;
+
+import "gogoproto/gogo.proto";
+import "cosmos_proto/cosmos.proto";
+import "google/protobuf/any.proto";
+
+option go_package = "github.com/bianjieai/spartan-cosmos/module/node";
+option (gogoproto.goproto_getters_all) = false;
+
+// CreateValidatorProposal is a gov Content type for creating a validator
+message CreateValidatorProposal {
+  option (gogoproto.equal)            = true;
+
+  string title = 1;
+  string summary = 2;
+  string name = 3;
+  google.protobuf.Any  pubkey = 4 [(cosmos_proto.accepts_interface) = "cosmos.crypto.PubKey"];
+  int64  power = 5;
+  string description = 6;
+  string operator = 7;
+}
+
+// UpdateValidatorProposal is a gov Content type for updating a validator
+message UpdateValidatorProposal {
+  option (gogoproto.equal)            = true;
+
+  string title = 1;
+  string summary = 2;
+  string id = 3;
+  string name = 4;
+  int64 power = 5;
+  string description = 6;
+  string operator = 7;
+}
+
+// RemoveValidatorProposal is a gov Content type for removing a validator
+message RemoveValidatorProposal {
+  option (gogoproto.equal)            = true;
+
+  string title = 1;
+  string summary = 2;
+  string id    = 3;
+  string operator = 4;
+}

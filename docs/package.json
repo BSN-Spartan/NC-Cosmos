@@ -1,0 +1,22 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "Spartan-Cosmos Documents",
+  "main": "index.js",
+  "scripts": {
+    "serve": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "author": "Bianjie Dev Team",
+  "license": "ISC",
+  "devDependencies": {
+    "@vuepress/plugin-search": "^1.9.7",
+    "lodash": "^4.17.21",
+    "markdown-it": "^12.3.2",
+    "markdown-it-meta": "^0.0.1",
+    "vuepress": "^1.9.7"
+  },
+  "dependencies": {
+    "axios": "^0.26.0"
+  }
+}
