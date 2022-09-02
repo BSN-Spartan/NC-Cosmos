@@ -2,20 +2,15 @@
 order: 4
 ---
 
-# Join the Mainnet
+# Join the Spartan-II Chain (Powered by NC-Cosmos) Network
 
-:::warning
-Since the Miannet is not prepared, this document provides a limited reference.
-:::
 
-## Mainnet Infos
 
-The table below gives an overview of all Mainnet Chain IDs.
+## Chain ID
 
-| Chain ID      | Description | Site | Version | Status |
-| ------------- | ----------- | ---- | ------- | ------ |
-| mainnet-1 |             |      |         |        |
-| mainnet-2 |             |      |         |        |
+EVM module:  Network ID = Chain ID = 9003
+
+Native module:  Network ID = Chain Id = starmint
 
 ## Install Spartan
 
@@ -61,28 +56,7 @@ The final step is to start the node. The node will start producing blocks.
 spartan start
 ```
 
-## Join the Mainnet as a Validator [Optional]
 
-In Spartan-Cosmos, one node can become a validator only by submitting a `create-validator` proposal. 
 
-```shell
-spartan tx gov submit-proposal create-validator <create-validator.json>
-```
 
-Here is a template for the  `create-validator.json` file.
 
-```json
-{
-        "deposit":"1000usnmt",
-        "content":{
-                "title":"proposal title",
-                "summary":"proposal description",
-                "name":"node1",
-                "pubkey":"{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"FU1a1Yhu+eE0XlZWSwywZur2uItmtpYZGs8TpMK4im0=\"}",
-            "power":"100",
-            "description":"my node1",
-            "operator":"iaa104hrdtdkk5lfh8c3nc3pf20ad0sgdvselg0vxs"
-        }
-}
-
-```

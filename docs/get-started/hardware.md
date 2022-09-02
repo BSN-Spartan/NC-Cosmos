@@ -2,13 +2,13 @@
 order: 3
 ---
 
-# Hardware Requeirment
+# Hardware Requirement
 
 Before joining the mainnet/testnet, it should be noted that running a node can be quite resource-intensive.
 
 It's recommended that you run Spartan-Cosmos nodes on Linux Server with the following minimum requirement.
 
-## Minimum Requeirment
+## Minimum Requirement
 
 - 2 CPU
 - Memory: 6GB
@@ -17,7 +17,7 @@ It's recommended that you run Spartan-Cosmos nodes on Linux Server with the foll
 - Bandwidth: 20Mbps
 - Allow all incoming connections on TCP port 26656 and 26657
 
-## Recommended Requeirment
+## Recommended Requirement
 
 - 4 CPU
 - Memory: 12GB
