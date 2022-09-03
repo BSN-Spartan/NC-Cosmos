@@ -141,7 +141,11 @@ The final step is to start the node. The node will start producing blocks.
 ```shell
 spartan start
 ```
+Or you can execute in the background via `nohup`:
 
+```
+nohup spartan start >./output.log 2>&1 &
+```
 
 ## 5. Generate the Node Signature
 
