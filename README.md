@@ -108,7 +108,7 @@ spartan version
 
 Select a Chain ID and initialize the node. By default, the `testnet` command creates the `~/.spartan` directory with subfolders `config` and `data`. In the following steps, we assume you use this default path.
 
-Note that you should specify `-v` as 1, otherwise it will create multiple node config files, which is useful for local testnet.
+Note that you should specify `--v` as 1, otherwise it will create multiple node config files, which is useful for local testnet.
 
 ```shell
 # initialize node configurations
