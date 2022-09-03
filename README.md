@@ -112,23 +112,20 @@ Note that you should specify `--v` as 1, otherwise it will create multiple node 
 
 ```shell
 # initialize node configurations
-spartan testnet --v 1 --chain-id=<spartan-mainnet>
+spartan testnet --v 1 --chain-id=starmint
 ```
 
 ### 4.2 Genesis & Seeds
 In the `~/.spartan/config` directory, the most important files for configuration are `app.toml` and `config.toml`.
 
-In this step, you should download the public `genesis.json` from the official site.
+Download [genesis.json](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/genesis.json), 
+[app.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/app.toml), 
+[config.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/config.toml) to the current folder.
 
-```shell
-# download mainnet public config.toml and genesis.json
-curl -o ~/.spartan/config/genesis.json <official-genesis-url>
 ```
-
-To find peers, it's necessary to add healthy seed nodes to `config.toml`. As well, you can download it from the official site.
-
-```shell
-curl -o ~/.spartan/config/config.toml <official-config-url>
+cp genesis.json ~/.spartan/config
+cp app.toml ~/.spartan/config
+cp config.toml ~/.spartan/config
 ```
 
 ### 4.3 Start Mainnet
@@ -164,7 +161,6 @@ Execute below command:
 
   ```
 docker exec bsnspartan/nc-cosmos:0.45.1 spartan node sign-info --home spartan 
-  
   ```
 #### Node Signature
 
