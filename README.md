@@ -100,7 +100,7 @@ Note that you should specify `-v` as 1, otherwise it will create multiple node c
 
 ```shell
 # initialize node configurations
-spartan testnet -v 1 --chain-id=<spartan-mainnet>
+spartan testnet --v 1 --chain-id=<spartan-mainnet>
 ```
 
 ### 4.2 Genesis & Seeds
