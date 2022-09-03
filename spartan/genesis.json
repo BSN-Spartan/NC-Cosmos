@@ -1,0 +1,356 @@
+{
+  "genesis_time": "2022-09-02T08:12:33.697956408Z",
+  "chain_id": "starmint",
+  "initial_height": "1",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "204800",
+      "max_gas": "-1",
+      "time_iota_ms": "1000"
+    },
+    "evidence": {
+      "max_age_num_blocks": "100000",
+      "max_age_duration": "172800000000000",
+      "max_bytes": "203766"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    },
+    "version": {}
+  },
+  "app_hash": "",
+  "app_state": {
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000",
+        "sig_verify_cost_sm2": "7850"
+      },
+      "accounts": [
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "address": "iaa1gay4ety4hg2fm47t09q39wcpe8dajhxawhpl6r",
+            "pub_key": null,
+            "account_number": "0",
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        }
+      ]
+    },
+    "bank": {
+      "params": {
+        "send_enabled": [],
+        "default_send_enabled": true
+      },
+      "balances": [
+        {
+          "address": "iaa1gay4ety4hg2fm47t09q39wcpe8dajhxawhpl6r",
+          "coins": [
+            {
+              "denom": "uduo",
+              "amount": "5000000000"
+            },
+            {
+              "denom": "ugas",
+              "amount": "1000000000000000000000000000"
+            },
+            {
+              "denom": "upoint",
+              "amount": "5000000000"
+            }
+          ]
+        }
+      ],
+      "supply": [],
+      "denom_metadata": []
+    },
+    "crisis": {
+      "constant_fee": {
+        "denom": "uduo",
+        "amount": "1000"
+      }
+    },
+    "evidence": {
+      "evidence": []
+    },
+    "evm": {
+      "accounts": [],
+      "params": {
+        "evm_denom": "ugas",
+        "enable_create": true,
+        "enable_call": true,
+        "extra_eips": [],
+        "chain_config": {
+          "homestead_block": "0",
+          "dao_fork_block": "0",
+          "dao_fork_support": true,
+          "eip150_block": "0",
+          "eip150_hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "eip155_block": "0",
+          "eip158_block": "0",
+          "byzantium_block": "0",
+          "constantinople_block": "0",
+          "petersburg_block": "0",
+          "istanbul_block": "0",
+          "muir_glacier_block": "0",
+          "berlin_block": "0",
+          "london_block": "0",
+          "arrow_glacier_block": "0",
+          "merge_fork_block": "0"
+        }
+      }
+    },
+    "feegrant": {
+      "allowances": []
+    },
+    "feemarket": {
+      "params": {
+        "no_base_fee": true,
+        "base_fee_change_denominator": 8,
+        "elasticity_multiplier": 2,
+        "enable_height": "0",
+        "base_fee": "1000000000"
+      },
+      "block_gas": "0"
+    },
+    "genutil": {
+      "gen_txs": []
+    },
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": [],
+      "votes": [],
+      "proposals": [],
+      "deposit_params": {
+        "min_deposit": [
+          {
+            "denom": "uduo",
+            "amount": "1000"
+          }
+        ],
+        "max_deposit_period": "28800s"
+      },
+      "voting_params": {
+        "voting_period": "28800s"
+      },
+      "tally_params": {
+        "quorum": "0.800000000000000000",
+        "threshold": "0.500000000000000000",
+        "veto_threshold": "0.334000000000000000"
+      }
+    },
+    "identity": {
+      "identities": []
+    },
+    "mt": {
+      "collections": [],
+      "owners": []
+    },
+    "nft": {
+      "collections": []
+    },
+    "node": {
+      "root_cert": "-----BEGIN CERTIFICATE-----\nMIIBxTCCAXegAwIBAgIUQEdPuOvbXp1UBhWy00oB05WtvnkwBQYDK2VwMFgxCzAJ\nBgNVBAYTAkNOMQ0wCwYDVQQIDARyb290MQ0wCwYDVQQHDARyb290MQ0wCwYDVQQK\nDARyb290MQ0wCwYDVQQLDARyb290MQ0wCwYDVQQDDARyb290MB4XDTIyMDkwMjA4\nMTIxMVoXDTIzMDkwMjA4MTIxMVowWDELMAkGA1UEBhMCQ04xDTALBgNVBAgMBHJv\nb3QxDTALBgNVBAcMBHJvb3QxDTALBgNVBAoMBHJvb3QxDTALBgNVBAsMBHJvb3Qx\nDTALBgNVBAMMBHJvb3QwKjAFBgMrZXADIQCk6UM11D+ozTWERalv7oxkVocp5T8Y\neDA2zpMbTjTrAaNTMFEwHQYDVR0OBBYEFOo0JO5qXO/4sFDXR92+fxKew8LRMB8G\nA1UdIwQYMBaAFOo0JO5qXO/4sFDXR92+fxKew8LRMA8GA1UdEwEB/wQFMAMBAf8w\nBQYDK2VwA0EA6ly1AEqSDSnp2caD3dbkQRSoSUwfPzRhiEux2u1aHxzYTJDUouDn\nSB7c3ENRmQRKoe5U3Fj5U8nDLEkcFNc4Dg==\n-----END CERTIFICATE-----\n",
+      "params": {
+        "historical_entries": 100
+      },
+      "validators": [
+        {
+          "id": "9BB06144A17DD0802E4E3535771E065047F617B5B84DA2564BA552F946C7606A",
+          "name": "node0",
+          "pubkey": "icp1zcjduepq2x2ancd69l9c0cec3t9jn8nklg6evdhddgyrtct3j958ts29ydtsjfa6xx",
+          "certificate": "",
+          "power": "1000",
+          "description": "node0",
+          "jailed": false,
+          "operator": "iaa1e9q8622q3q796zkt6z263xfu2ll79pcyt837et"
+        },
+        {
+          "id": "F9FE596E8418F13BEC769FBAEA7A9A7659784F4239EAB786426C92F343266567",
+          "name": "node1",
+          "pubkey": "icp1zcjduepqu9k9pf5d59cs373pjnukt2rh5al85444cv77l9hqcpxu3wan3mhqjlj3cp",
+          "certificate": "",
+          "power": "1000",
+          "description": "node1",
+          "jailed": false,
+          "operator": "iaa1gj5j2cd4mua650vzvr2jehxxm5wzfx6mcnk2jj"
+        },
+        {
+          "id": "98ED368ED9E048F70F518D7F736A052C9FA6F9097B9DA941112BF510D836D4E1",
+          "name": "node2",
+          "pubkey": "icp1zcjduepq68gk0lsj22w4h4c3alx7xp023nqyfe74zhecfc5e9p4p9pu7930qqyjkzk",
+          "certificate": "",
+          "power": "1000",
+          "description": "node2",
+          "jailed": false,
+          "operator": "iaa1z3jtf4l4e6lve0gyrk4gnyyt3dsen93gfnk4wm"
+        },
+        {
+          "id": "41FCCA8B6FC339305B272F2E14BF8C8307A437032FE57FBD2BD2832759F7C263",
+          "name": "node3",
+          "pubkey": "icp1zcjduepq7cuxmrtr87xa2ase7ukkkssdnnnlg0a3sruex475d6wr7chjcakqy00zsq",
+          "certificate": "",
+          "power": "1000",
+          "description": "node3",
+          "jailed": false,
+          "operator": "iaa1dkgtfdft2re47dntgzlu07fvm4l03ngytf6jng"
+        }
+      ],
+      "nodes": []
+    },
+    "opb": {
+      "params": {
+        "base_token_denom": "ugas",
+        "point_token_denom": "upoint",
+        "base_token_manager": "iaa1gay4ety4hg2fm47t09q39wcpe8dajhxawhpl6r",
+        "unrestricted_token_transfer": false
+      }
+    },
+    "params": null,
+    "perm": {
+      "role_accounts": [
+        {
+          "address": "iaa1gay4ety4hg2fm47t09q39wcpe8dajhxawhpl6r",
+          "roles": [
+            "ROOT_ADMIN"
+          ]
+        }
+      ],
+      "black_list": [],
+      "contract_deny_list": []
+    },
+    "record": {
+      "records": []
+    },
+    "service": {
+      "params": {
+        "max_request_timeout": "100",
+        "min_deposit_multiple": "1000",
+        "min_deposit": [
+          {
+            "denom": "upoint",
+            "amount": "5000"
+          }
+        ],
+        "service_fee_tax": "0.050000000000000000",
+        "slash_fraction": "0.001000000000000000",
+        "complaint_retrospect": "1296000s",
+        "arbitration_time_limit": "432000s",
+        "tx_size_limit": "4000",
+        "base_denom": "upoint",
+        "restricted_service_fee_denom": false
+      },
+      "definitions": [],
+      "bindings": [],
+      "withdraw_addresses": {},
+      "request_contexts": {}
+    },
+    "slashing": {
+      "params": {
+        "signed_blocks_window": "100",
+        "min_signed_per_window": "0.500000000000000000",
+        "downtime_jail_duration": "600s",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.010000000000000000"
+      },
+      "signing_infos": [
+        {
+          "address": "ica1nwcxz39p0hggqtjwx56hw8sx2prlv9a4vs376s",
+          "validator_signing_info": {
+            "address": "ica1nwcxz39p0hggqtjwx56hw8sx2prlv9a4vs376s",
+            "start_height": "0",
+            "index_offset": "0",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "tombstoned": false,
+            "missed_blocks_counter": "0"
+          }
+        },
+        {
+          "address": "ica1l8l9jm5yrrcnhmrkn7aw5756wevhsn6zk4ax89",
+          "validator_signing_info": {
+            "address": "ica1l8l9jm5yrrcnhmrkn7aw5756wevhsn6zk4ax89",
+            "start_height": "0",
+            "index_offset": "0",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "tombstoned": false,
+            "missed_blocks_counter": "0"
+          }
+        },
+        {
+          "address": "ica1nrkndrkeupy0wr6334lhx6s99j06d7gfnajxzx",
+          "validator_signing_info": {
+            "address": "ica1nrkndrkeupy0wr6334lhx6s99j06d7gfnajxzx",
+            "start_height": "0",
+            "index_offset": "0",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "tombstoned": false,
+            "missed_blocks_counter": "0"
+          }
+        },
+        {
+          "address": "ica1g87v4zm0cvunqke89uhpf0uvsvr6gdcr7yg8jj",
+          "validator_signing_info": {
+            "address": "ica1g87v4zm0cvunqke89uhpf0uvsvr6gdcr7yg8jj",
+            "start_height": "0",
+            "index_offset": "0",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "tombstoned": false,
+            "missed_blocks_counter": "0"
+          }
+        }
+      ],
+      "missed_blocks": []
+    },
+    "token": {
+      "params": {
+        "token_tax_rate": "0.400000000000000000",
+        "issue_token_base_fee": {
+          "denom": "duo",
+          "amount": "60000"
+        },
+        "mint_token_fee_ratio": "0.100000000000000000"
+      },
+      "tokens": [
+        {
+          "symbol": "duo",
+          "name": "Spartan Network Management token",
+          "scale": 6,
+          "min_unit": "uduo",
+          "initial_supply": "1000000000",
+          "max_supply": "18446744073709551615",
+          "mintable": true,
+          "owner": "iaa1gay4ety4hg2fm47t09q39wcpe8dajhxawhpl6r"
+        },
+        {
+          "symbol": "point",
+          "name": "Spartan Network Point Token",
+          "scale": 6,
+          "min_unit": "upoint",
+          "initial_supply": "1000000000",
+          "max_supply": "18446744073709551615",
+          "mintable": true,
+          "owner": "iaa1gay4ety4hg2fm47t09q39wcpe8dajhxawhpl6r"
+        },
+        {
+          "symbol": "gas",
+          "name": "Spartan Network Fee Token",
+          "scale": 18,
+          "min_unit": "ugas",
+          "initial_supply": "1000000000",
+          "max_supply": "18446744073709551615",
+          "mintable": true,
+          "owner": "iaa1gay4ety4hg2fm47t09q39wcpe8dajhxawhpl6r"
+        }
+      ],
+      "burned_coins": []
+    },
+    "upgrade": {}
+  }
+}
