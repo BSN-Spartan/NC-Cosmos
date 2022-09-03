@@ -62,7 +62,9 @@ Modify environment variables, for example in bash
 vim /etc/profile
 
 # insert at the bottom of the file
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:/opt/gopath/bin
+export GOPATH=/opt/gopath
+
 
 source /etc/profile
 ```
