@@ -124,7 +124,7 @@ Download [genesis.json](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spart
 [app.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/app.toml), 
 [config.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/config.toml) to the current folder.
 
-```
+```shell
 # copy and replace these three files
 cp genesis.json ~/.spartan/config
 cp app.toml ~/.spartan/config
