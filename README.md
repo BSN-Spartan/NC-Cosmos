@@ -46,24 +46,36 @@ It's recommended that you run Spartan-II Chain（Powered by NC Cosmos) nodes on 
 **Go 1.18** is recommended for building and installing the Spartan-Cosmos software.
 :::
 
-Install `go` by following the [official docs](https://go.dev/doc/install).
+Install `go` by the following steps:
 
-Remember to set your `$GOPATH`, `$GOBIN`, and `$PATH` environment variables, for example:
+Download and untar the installation file
 
-```bash
-mkdir -p $HOME/go/bin
-echo "export GOPATH=$HOME/go" >> ~/.bashrc
-source ~/.bashrc
-echo "export GOBIN=$GOPATH/bin" >> ~/.bashrc
-source ~/.bashrc
-echo "export PATH=$PATH:$GOBIN" >> ~/.bashrc
-source ~/.bashrc
+```
+wget https://go.dev/dl/go1.18.5.linux-amd64.tar.gz
+
+tar -C /usr/local -zxvf go1.18.5.linux-amd64.tar.gz
 ```
 
-Verify that `go` has been installed successfully.
+Modify environment variables, for example in bash
 
-```bash
+```shell
+vim /etc/profile
+
+# insert at the bottom of the file
+export PATH=$PATH:/usr/local/go/bin
+
+source /etc/profile
+```
+
+Check the installation result
+
+```
 go version
+```
+Before compiling the source code, make sure that `gcc` has been successfully installed. If not, please install `gcc` first.
+
+```
+gcc -v
 ```
 
 ### 3.2 Installation
@@ -75,7 +87,7 @@ Make sure that your server can access Google because our project depends on some
 ```bash
 git clone https://github.com/BSN-Spartan/NC-Cosmos.git
 cd NC-Cosmos
-git checkout <version>
+git checkout v0.45.1
 make install
 ```
 
