@@ -88,7 +88,7 @@ Make sure that your server can access Google because our project depends on some
 ```bash
 git clone https://github.com/BSN-Spartan/NC-Cosmos.git
 cd NC-Cosmos
-git checkout v0.45.1
+git checkout v1.0.2
 make install
 ```
 
@@ -121,7 +121,8 @@ sudo usermod -aG docker your-user
 Official Docker images are hosted under the hub.docker.com registry. Run the following command to pull them to the server:
 
 ```
-docker pull bsnspartan/nc-cosmos:0.45.1
+docker pull bsnspartan/nc-cosmos:latest
+docker pull bsnspartan/nc-cosmos:latest
 ```
 
 
@@ -172,7 +173,7 @@ nohup spartan start --home /spartan >./output.log 2>&1 &
 You can also start the node by Docker:
 
 ```shell
-docker run -d -p 9090:9090 -p 26656:26656 -p 26657:26657 -p 8545:8545 -p 8546:8546 -v /spartan:/spartan --restart=always --name spartan-nc-cosmos bsnspartan/nc-cosmos:0.45.1 spartan start --home /spartan
+docker run -d -p 9090:9090 -p 26656:26656 -p 26657:26657 -p 8545:8545 -p 8546:8546 -v /spartan:/spartan --restart=always --name spartan-nc-cosmos bsnspartan/nc-cosmos:latest spartan start --home /spartan
 ```
 
 You can check logs by command below:
