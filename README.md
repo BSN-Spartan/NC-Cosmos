@@ -2,13 +2,12 @@
 
 # Introduction
 
-A Non-Cryptocurrency Public Chain is a transformed public chain framework based on an existing public chain. Gas Credit transfers are not permitted between standard wallets. There will be no cryptocurrency incentives for mining or participating in consensus.
+A Non-Cryptocurrency Public Chain is a transformed public chain framework based on an existing public chain. Gas Credit transfers are not permitted between standard wallets. There are no cryptocurrency incentives for mining or participating in consensus. On Spartan Network, there are three Non-Cryptocurrency Public Chains at launch. We except to add more in the forseenable forture. 
 
 ## 1. About Spartan-II Chain (Powered by NC Cosmos)
 
-This document is a guide to install, configure and run a full node in the Non-Crypto Polygon Edge (NC-Cosmos) public blockchain.
-
-NC-Polygon Edge networks have two identifiers, a network ID and a chain ID. Although they often have the same value, they have different uses. Peer-to-peer communication between nodes uses the network ID, while the transaction signature process uses the chain ID.
+This document is a guide to install, configure and run a full node in the Spartan-II Chain (powered by Non-Cryptocurrency Cosmos) .
+NC-Polygon Edge Cosmos-based  networks have two identifiers, a network ID and a chain ID. Although they often have the same value, they have different uses. Peer-to-peer communication between nodes uses the network ID, while the transaction signature process uses the chain ID.
 
 EVM module:  Network ID = Chain ID = 9003
 
@@ -87,9 +86,9 @@ gcc -v
 ### 3.2 Installation
 
 #### 3.2.1 Building from Source
-After setting up `go` correctly, you should be able to compile and run `spartan`.
+After setting up `go` correctly, you should be able to compile and run Spartan-II Chain full node.
 
-Make sure that your server can access Google because our project depends on some libraries provided by Google. (If you don't have access to google.com, you can also try to add a proxy: `export GOPROXY=https://goproxy.io`)
+Make sure that your server can access Google because the Spartan project depends on some libraries provided by Google. (If you don't have access to google.com, you can also try to add a proxy: `export GOPROXY=https://goproxy.io`)
 
 ```bash
 git clone https://github.com/BSN-Spartan/NC-Cosmos.git
@@ -98,9 +97,9 @@ git checkout v1.0.2
 make install
 ```
 
-Have you set up the Environment Variables correctly, you will get no error during `spartan` installation.
+Have you set up the Environment Variables correctly, you will get no error during Spartan Network installation.
 
-Now check your `spartan` version.
+Now check the `spartan` version.
 
 ```bash
 spartan version
@@ -190,7 +189,7 @@ docker logs -f spartan-nc-cosmos
 
 ## 5. Generate the Node Signature
 
-When joining the Spartan Network as a VDC, the VDC Owner will be rewarded a certain amount of NTT Incentives based on the quantity of the registered node. To achieve this, the VDC Owner should firstly provide the signature of the VDC node to verify the node's ownership.
+When joining the Spartan Network as a VDCData Center, the VDC OwnerData Center Operator will be rewarded a certain amount of NTT Incentives based on the quantity of the registered node. To achieve this, the VDCDC Owner should firstlyfirst provide the signature of the VDCfull node to verify the node's ownership.
 
 ####     Node Installed by Commands:
 
