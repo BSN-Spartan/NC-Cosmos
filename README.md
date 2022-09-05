@@ -12,13 +12,13 @@ NC-Polygon Edge networks have two identifiers, a network ID and a chain ID. Alth
 
 EVM module:  Network ID = Chain ID = 9003
 
-Native module:  Network ID = Chain Id = starmint
+Native module:  Network ID = Chain ID = starmint
 
 ## 2. Hardware Requirement
 
 Before joining the mainnet/testnet, it should be noted that running a node can be quite resource-intensive.
 
-It's recommended that you run Spartan-II Chain（Powered by NC Cosmos) nodes on Linux Server with the following minimum requirement.
+It's recommended that you run Spartan-II Chain (Powered by NC Cosmos) nodes on Linux Server with the following minimum requirement.
 
 #### Minimum Requirement
 
@@ -64,8 +64,11 @@ vim /etc/profile
 # insert at the bottom of the file
 export PATH=$PATH:/usr/local/go/bin:/opt/gopath/bin
 export GOPATH=/opt/gopath
+```
 
+Then, make the /etc/profile file take effect after modification
 
+```
 source /etc/profile
 ```
 
@@ -74,14 +77,10 @@ Check the installation result
 ```
 go version
 ```
-Before compiling the source code, make sure that `gcc` has been successfully installed. If not, please install `gcc` first.
-
-```
-gcc -v
-```
 
 ### 3.2 Installation
 
+#### 3.2.1 Building from Source
 After setting up `go` correctly, you should be able to compile and run `spartan`.
 
 Make sure that your server can access Google because our project depends on some libraries provided by Google. (If you don't have access to google.com, you can also try to add a proxy: `export GOPROXY=https://goproxy.io`)
@@ -101,38 +100,58 @@ Now check your `spartan` version.
 spartan version
 ```
 
+#### 3.2.2 Using Docker Images
 
+
+Before installing the node by Docker images, Docker 18 or later version should be installed in your server.
+
+Run the following command to install the Docker image:
+
+```
+wget -qO- https://get.docker.com/ | sh
+```
+
+Grant your user permission to execute Docker commands:
+
+```
+sudo usermod -aG docker your-user
+```
+
+
+Official Docker images are hosted under the hub.docker.com registry. Run the following command to pull them to the server:
+
+```
+docker pull bsnspartan/nc-cosmos:0.45.1
+```
 
 
 ## 4. Run the Full Node
 
 ### 4.1 Initialize Node
 
-Select a Chain ID and initialize the node. By default, the `testnet` command creates the `~/.spartan` directory with subfolders `config` and `data`. In the following steps, we assume you use this default path.
-
-Note that you should specify `--v` as 1, otherwise it will create multiple node config files.
+Create the directory `/spartan` for node installation and the sub directory `/config` and `/data` to store the configuration file:
 
 ```shell
-# initialize node configurations
-spartan testnet --v 1 --chain-id=starmint
+mkdir -p /spartan/config
+mkdir -p /spartan/data
 ```
 
-### 4.2 Genesis & Seeds
-In the `~/.spartan/config` directory, the most important files for configuration are `app.toml` and `config.toml`.
+Download [genesis.json](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/genesis.json), [app.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/app.toml) and [config.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/config.toml) to the `/spartan/config` directory.
 
-Download [genesis.json](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/genesis.json), 
-[app.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/app.toml), 
-[config.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/config.toml) to the current folder.
+Now the structure is like below:
 
 ```shell
-# copy and replace these three files
-cp genesis.json ~/.spartan/config
-cp app.toml ~/.spartan/config
-cp config.toml ~/.spartan/config
+/spartan/
+├── config
+│   ├── app.toml
+│   ├── config.toml
+│   └── genesis.json
+└── data
 ```
 
-### 4.3 Start Mainnet
+### 4.2 Start Mainnet
 
+#### 4.2.1 Binary
 :::tip NOTE
 By now can **Run the Node as a Full Node** with this last step to join the mainnet. No extra steps are required.
 :::
@@ -140,13 +159,28 @@ By now can **Run the Node as a Full Node** with this last step to join the mainn
 The final step is to start the node. The node will start producing blocks.
 
 ```shell
-spartan start
+spartan start --home /spartan
 ```
 Or you can execute in the background via `nohup`:
 
+```shell
+nohup spartan start --home /spartan >./output.log 2>&1 &
 ```
-nohup spartan start >./output.log 2>&1 &
+
+#### 4.2.2 Docker
+
+You can also start the node by Docker:
+
+```shell
+docker run -d -p 9090:9090 -p 26656:26656 -p 26657:26657 -p 8545:8545 -p 8546:8546 -v /spartan:/spartan --restart=always --name spartan-nc-cosmos bsnspartan/nc-cosmos:0.45.1 spartan start --home /spartan
 ```
+
+You can check logs by command below:
+
+```shell
+docker logs -f spartan-nc-cosmos
+```
+
 
 ## 5. Generate the Node Signature
 
@@ -157,7 +191,7 @@ When joining the Spartan Network as a VDC, the VDC Owner will be rewarded a cert
 Execute the following command in the node's data directory after the node is started.
 
 ```
-spartan node sign-info --home spartan
+spartan node sign-info --home /spartan
 ```
 
 * `--home` is the data directory of the node.  you should specify this directory to store the data file of the node.
@@ -166,9 +200,9 @@ spartan node sign-info --home spartan
 
 Execute below command:
 
-  ```
-docker exec bsnspartan/nc-cosmos:0.45.1 spartan node sign-info --home spartan 
-  ```
+```
+docker exec spartan-nc-cosmos spartan node sign-info --home /spartan 
+ ```
 #### Node Signature
 
 After executing the above commands，you will get the following information. Please submit it to the Spartan Governance System when registering the node .
