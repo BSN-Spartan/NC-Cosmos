@@ -122,7 +122,6 @@ Official Docker images are hosted under the hub.docker.com registry. Run the fol
 
 ```
 docker pull bsnspartan/nc-cosmos:latest
-docker pull bsnspartan/nc-cosmos:latest
 ```
 
 
@@ -130,7 +129,7 @@ docker pull bsnspartan/nc-cosmos:latest
 
 ### 4.1 Initialize Node
 
-Create the directory `/spartan` for node installation and the sub directory `/config` and `/data` to store the configuration file:
+Create the directory `/spartan` for node installation and the sub directory `config` and `data` to store the configuration file:
 
 ```shell
 mkdir -p /spartan/config
