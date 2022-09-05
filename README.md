@@ -78,6 +78,12 @@ Check the installation result
 go version
 ```
 
+Before compiling the source code, make sure that `gcc` has been successfully installed. If not, please install `gcc` first.
+
+```
+gcc -v
+```
+
 ### 3.2 Installation
 
 #### 3.2.1 Building from Source
