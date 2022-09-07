@@ -189,7 +189,7 @@ docker logs -f spartan-nc-cosmos
 
 ## 5. Generate the Node Signature
 
-When joining the Spartan Network as a Data Center, the Data Center Operator will be rewarded a certain amount of NTT Incentives based on the quantity of the registered node. To achieve this, the DC Owner should first provide the signature of the full node to verify the node's ownership.
+When joining the Spartan Network as a Data Center, the Data Center Operator will be rewarded a certain amount of NTT Incentives based on the quantity of the registered node. To achieve this, the Data Center Operator should first provide the signature of the full node to verify the node's ownership.
 
 ####     Node Installed by Commands:
 
