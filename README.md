@@ -180,6 +180,15 @@ You can also start the node by Docker:
 docker run -d -p 9090:9090 -p 26656:26656 -p 26657:26657 -p 8545:8545 -p 8546:8546 -v /spartan:/spartan --restart=always --name spartan-nc-cosmos bsnspartan/nc-cosmos:latest spartan start --home /spartan
 ```
 
+* `Json RPC`:  
+   * `EVM module: ` http://<ip_address>:8545  
+   * `Native module: `  http://<ip_address>:26657  
+* `WebSocket`:  
+   * `EVM module:`  ws://<ip_address>:8546  
+   * `Native module:`  ws://<ip_address>:26657/websocket   
+* `gRPC`: 
+   * <ip_address>:9090  
+
 You can check logs by command below:
 
 ```shell
@@ -220,6 +229,10 @@ After executing the above commands，you will get the following information. Ple
   }
 ```
 
+#### Node RPC URL
+
+When joining the Spartan Network as a DC, also need the RPC URL, which is configured in the node's `config.toml` file, the default configuration is
+* `RPC URL: ` http://<ip_address>:26657
 
 
 ## 6.Resources
