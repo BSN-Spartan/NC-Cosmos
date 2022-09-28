@@ -1,14 +1,11 @@
+## Introduction
 
-
-# Introduction
-
-A Non-Cryptocurrency Public Chain is a transformed public chain framework based on an existing public chain. Gas Credit transfers are not permitted between standard wallets. There will be no cryptocurrency incentives for mining or participating in consensus.
+A Non-Cryptocurrency Public Chain is a transformed public chain framework based on an existing public chain. Gas Credit transfers are not permitted between standard wallets. There are no cryptocurrency incentives for mining or participating in consensus. On Spartan Network, there are three Non-Cryptocurrency Public Chains at launch. We except to add more in the foreseeable future. 
 
 ## 1. About Spartan-II Chain (Powered by NC Cosmos)
 
-This document is a guide to install, configure and run a full node in the Non-Crypto Polygon Edge (NC-Cosmos) public blockchain.
-
-NC-Polygon Edge networks have two identifiers, a network ID and a chain ID. Although they often have the same value, they have different uses. Peer-to-peer communication between nodes uses the network ID, while the transaction signature process uses the chain ID.
+This document is a guide to install, configure and run a full node in the Spartan-II Chain (powered by NC Cosmos) .
+Cosmos-based networks have two identifiers, a network ID and a chain ID. Although they often have the same value, they have different uses. Peer-to-peer communication between nodes uses the network ID, while the transaction signature process uses the chain ID.
 
 EVM module:  Network ID = Chain ID = 9003
 
@@ -50,7 +47,7 @@ Install `go` by the following steps:
 
 Download and untar the installation file
 
-```
+```shell
 wget https://go.dev/dl/go1.18.5.linux-amd64.tar.gz
 
 tar -C /usr/local -zxvf go1.18.5.linux-amd64.tar.gz
@@ -68,28 +65,29 @@ export GOPATH=/opt/gopath
 
 Then, make the /etc/profile file take effect after modification
 
-```
+```shell
 source /etc/profile
 ```
 
 Check the installation result
 
-```
+```shell
 go version
 ```
 
 Before compiling the source code, make sure that `gcc` has been successfully installed. If not, please install `gcc` first.
 
-```
+```shell
 gcc -v
 ```
 
 ### 3.2 Installation
 
 #### 3.2.1 Building from Source
-After setting up `go` correctly, you should be able to compile and run `spartan`.
 
-Make sure that your server can access Google because our project depends on some libraries provided by Google. (If you don't have access to google.com, you can also try to add a proxy: `export GOPROXY=https://goproxy.io`)
+After setting up `go` correctly, you should be able to compile and run Spartan-II Chain full node.
+
+Make sure that your server can access Google because the Spartan project depends on some libraries provided by Google. (If you don't have access to google.com, you can also try to add a proxy: `export GOPROXY=https://goproxy.io`)
 
 ```bash
 git clone https://github.com/BSN-Spartan/NC-Cosmos.git
@@ -98,9 +96,9 @@ git checkout v1.0.2
 make install
 ```
 
-Have you set up the Environment Variables correctly, you will get no error during `spartan` installation.
+Have you set up the Environment Variables correctly, you will get no error during Spartan Network installation.
 
-Now check your `spartan` version.
+Now check the `spartan` version.
 
 ```bash
 spartan version
@@ -113,20 +111,20 @@ Before installing the node by Docker images, Docker 18 or later version should b
 
 Run the following command to install the Docker image:
 
-```
+```shell
 wget -qO- https://get.docker.com/ | sh
 ```
 
 Grant your user permission to execute Docker commands:
 
-```
+```shell
 sudo usermod -aG docker your-user
 ```
 
 
 Official Docker images are hosted under the hub.docker.com registry. Run the following command to pull them to the server:
 
-```
+```shell
 docker pull bsnspartan/nc-cosmos:latest
 ```
 
@@ -157,9 +155,10 @@ Now the structure is like below:
 
 ### 4.2 Start Mainnet
 
-#### 4.2.1 Binary
+#### 4.2.1 Start by Command
+
 :::tip NOTE
-By now can **Run the Node as a Full Node** with this last step to join the mainnet. No extra steps are required.
+By now, you can run the node as a Full Node with this last step to join the mainnet. No extra steps are required.
 :::
 
 The final step is to start the node. The node will start producing blocks.
@@ -167,19 +166,29 @@ The final step is to start the node. The node will start producing blocks.
 ```shell
 spartan start --home /spartan
 ```
+
 Or you can execute in the background via `nohup`:
 
 ```shell
 nohup spartan start --home /spartan >./output.log 2>&1 &
 ```
 
-#### 4.2.2 Docker
+#### 4.2.2 Start by Docker
 
 You can also start the node by Docker:
 
 ```shell
 docker run -d -p 9090:9090 -p 26656:26656 -p 26657:26657 -p 8545:8545 -p 8546:8546 -v /spartan:/spartan --restart=always --name spartan-nc-cosmos bsnspartan/nc-cosmos:latest spartan start --home /spartan
 ```
+
+* `Json RPC`:  
+  * `EVM module: ` http://<ip_address>:8545  
+  * `Native module: `  http://<ip_address>:26657  
+* `WebSocket`:  
+  * `EVM module:`  ws://<ip_address>:8546  
+  * `Native module:`  ws://<ip_address>:26657/websocket   
+* `gRPC`: 
+  * <ip_address>:9090  
 
 You can check logs by command below:
 
@@ -190,28 +199,29 @@ docker logs -f spartan-nc-cosmos
 
 ## 5. Generate the Node Signature
 
-When joining the Spartan Network as a VDC, the VDC Owner will be rewarded a certain amount of NTT Incentives based on the quantity of the registered node. To achieve this, the VDC Owner should firstly provide the signature of the VDC node to verify the node's ownership.
+When joining the Spartan Network as a Data Center, the Data Center Operator will be rewarded a certain amount of NTT Incentives based on the quantity of the registered node. To achieve this, the Data Center Operator should first provide the signature of the full node to verify the node's ownership.
 
-####     Node Installed by Commands:
+####     Node Installed by Commands
 
 Execute the following command in the node's data directory after the node is started.
 
-```
+```shell
 spartan node sign-info --home /spartan
 ```
 
-* `--home` is the data directory of the node.  you should specify this directory to store the data file of the node.
+* `--home` is the data directory of the node. You need to specify this directory to store the data file of the node.
 
 #### Node Installed by Docker
 
 Execute below command:
 
-```
+```shell
 docker exec spartan-nc-cosmos spartan node sign-info --home /spartan 
- ```
+```
+
 #### Node Signature
 
-After executing the above commands，you will get the following information. Please submit it to the Spartan Governance System when registering the node .
+Then, you will get the following information: 
 
 ```
 {
@@ -221,8 +231,21 @@ After executing the above commands，you will get the following information. Ple
   }
 ```
 
+Please submit it to the Data Center System when registering the node. 
+
+##### Note that, when filling in the "Node Address" blank, the value of "pub_key" needs to be unescaped like below:
+
+```
+ {"@type":"/cosmos.crypto.ed25519.PubKey","key":"3ggBZ5e7lJCoGsRE3CdNESSDv1fU8mbGDK4k8oNzJZQ="}
+```
+
+#### Node RPC URL
+
+When joining the Spartan Network as a Data Center, the RPC URL is also needed. It is configured in the `config.toml` file, the default configuration is:
+
+* `RPC URL: ` http://<ip_address>:26657
 
 
 ## 6.Resources
 
-To find out more about Spartan-II Chain (Powered by NC Cosmos), visit [here](https://github.com/BSN-Spartan/NC-Cosmos/tree/main/docs)
+To find out more information about Spartan-II Chain (Powered by NC Cosmos), please visit [here
