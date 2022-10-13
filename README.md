@@ -152,14 +152,18 @@ docker pull bsnspartan/nc-cosmos:latest
 
 ### 4.1 Initializing the Node
 
-Create the directory `/spartan` for node installation and the sub directory `config` and `data` to store the configuration file:
+Create a directory `/spartan/` for node installation and the sub directory `config/` and `data/` to store the configuration file:
 
 ```shell
 mkdir -p /spartan/config
 mkdir -p /spartan/data
 ```
 
-Download [genesis.json](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/genesis.json), [app.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/app.toml) and [config.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/config.toml) to the `/spartan/config` directory.
+Copy [genesis.json](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/genesis.json), [app.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/app.toml) and [config.toml](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/spartan/config.toml) from `spartan/` directory to `/spartan/config/` directory.
+
+```shell
+cp ./spartan/*  /spartan/config
+```
 
 Now the structure of /spartan is like below:
 
