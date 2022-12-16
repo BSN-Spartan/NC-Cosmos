@@ -11,9 +11,9 @@ A Non-Cryptocurrency Public Chain is a transformed public chain framework based 
 This document is a guide to install, configure and run a full node in the Spartan-II Chain (powered by NC Cosmos) .
 Cosmos-based networks have two identifiers, a network ID and a chain ID. Although they often have the same value, they have different uses. Peer-to-peer communication between nodes uses the network ID, while the transaction signature process uses the chain ID.
 
-EVM module:  Network ID = Chain ID = 9003
+EVM module:  **Network ID = Chain ID = 9003**
 
-Native module:  Network ID = Chain ID = starmint
+Native module:  **Network ID = Chain ID = starmint**
 
 ## 2. Hardware Requirements
 
